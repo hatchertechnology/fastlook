@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; connect-src https:;"
+    />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Fastlook</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div id="app">
+      <div id="mail-pane">
+        <webview
+          id="fastmail-view"
+          src="https://app.fastmail.com"
+          allowpopups
+        ></webview>
+      </div>
+
+      <div id="ai-panel" class="collapsed">
+        <div id="ai-panel-header">
+          <span>AI Assistant</span>
+          <button id="ai-close-btn" title="Close AI panel" aria-label="Close AI panel">✕</button>
+        </div>
+
+        <div id="ai-messages" role="log" aria-live="polite"></div>
+
+        <div id="ai-input-area">
+          <textarea
+            id="ai-input"
+            rows="3"
+            placeholder="Ask the AI something about your email…"
+            aria-label="AI prompt"
+          ></textarea>
+          <button id="ai-send-btn">Send</button>
+        </div>
+      </div>
+    </div>
+
+    <script src="renderer.js"></script>
+  </body>
+</html>
